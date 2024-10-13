@@ -6,6 +6,15 @@
     </ol>
 </nav>
 
+<div class="form-group col-md-3 mb-3">
+    <label for="" class="form-label">Filtrar tipo: </label>
+    <select (change)="filterType($event)" class="form-select">
+        <option value="">Selecione...</option>
+        <option [value]="entradaEnum">Entrada</option>
+        <option [value]="saidaEnum">Saída</option>
+    </select>
+</div>
+
 <div *ngIf="transactions && transactions.length == 0">
     <div class="col-md-6 mx-auto">
         <div class="alert alert-warning text-center">Nenhuma transação cadastrada</div>
@@ -24,15 +33,6 @@
 
     <app-card-container>
         <div class="table-responsive">
-
-            <div class="form-group col-md-3 mb-3">
-                <label for="" class="form-label">Filtrar tipo: </label>
-                <select (change)="filterType($event)" class="form-select">
-                    <option value="">Selecione...</option>
-                    <option [value]="entradaEnum">Entrada</option>
-                    <option [value]="saidaEnum">Saída</option>
-                </select>
-            </div>
 
             <table class="table" *ngIf="!isLoading">
                 <thead>
