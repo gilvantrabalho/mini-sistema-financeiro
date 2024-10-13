@@ -1,0 +1,18 @@
+<div class="row mb-4">
+    <div class="col-md-4 mb-3 mb-sm-3 mb-md-0 mb-lg-0">
+        <app-card-dashboard [title]="'Total Entrada'" [value]="totalEntry"
+            [icon]="'bi bi-graph-up-arrow text-success'" />
+    </div>
+    <div class="col-md-4 mb-3 mb-sm-3 mb-md-0 mb-lg-0">
+        <app-card-dashboard [title]="'Total Saída'" [value]="totalOut" [icon]="'bi bi-graph-down-arrow text-danger'" />
+    </div>
+    <div class="col-md-4 mb-3 mb-sm-3 mb-md-0 mb-lg-0">
+        <app-card-dashboard [title]="'Total'" [value]="total" [icon]="'bi bi-bookmarks text-warning'" />
+    </div>
+</div>
+
+<app-card-container>
+    <ngx-charts-bar-vertical [results]="data" [gradient]="false" [xAxis]="true" [yAxis]="true"
+        [legend]="true" [animations]="true">
+    </ngx-charts-bar-vertical>
+</app-card-container>

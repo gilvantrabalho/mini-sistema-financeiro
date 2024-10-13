@@ -1,0 +1,61 @@
+<form [formGroup]="formAddTransaction" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group mb-3">
+                <label for="" class="form-label">Tipo transação <span class="text-danger">*</span></label>
+                <select [(ngModel)]="transaction.type" formControlName="type" class="form-select p-2">
+                    <option value="">Selecione...</option>
+                    <option value="{{entradaEnum}}">Entrada</option>
+                    <option value="{{saidaEnum}}">Saída</option>
+                </select>
+                <div *ngIf="formAddTransaction.get('type')?.invalid && (formAddTransaction.get('type')?.touched || formAddTransaction.get('type')?.dirty)"
+                    class="text-danger">
+                    Tipo de transação é obrigatório.
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="value" class="form-label">Valor: <span class="text-danger">*</span></label>
+                <input [(ngModel)]="transaction.value" currencyMask
+                    [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName="value" type="text"
+                    class="form-control p-2">
+                <div *ngIf="formAddTransaction.get('value')?.invalid && (formAddTransaction.get('value')?.touched || formAddTransaction.get('value')?.dirty)"
+                    class="text-danger">
+                    Valor é obrigatório.
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="" class="form-label">Data: <span class="text-danger">*</span></label>
+                <input [(ngModel)]="transaction.date" formControlName="date" type="date" class="form-control p-2">
+                <div *ngIf="formAddTransaction.get('date')?.invalid && (formAddTransaction.get('date')?.touched || formAddTransaction.get('date')?.dirty)"
+                    class="text-danger">
+                    Data é obrigatória.
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 mt-3">
+            <div class="form-group">
+                <label for="" class="form-label">Descrição: <span class="text-danger">*</span></label>
+                <textarea [(ngModel)]="transaction.description" formControlName="description"
+                    class="form-control"></textarea>
+                <div *ngIf="formAddTransaction.get('description')?.invalid && (formAddTransaction.get('description')?.touched || formAddTransaction.get('description')?.dirty)"
+                    class="text-danger">
+                    Descrição é obrigatória.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <button type="reset" class="btn btn-outline-danger px-4 mt-3 me-1">Cancelar</button>
+        <button type="submit" class="btn btn-primary px-4 mt-3"
+            [disabled]="formAddTransaction.invalid">Cadastrar</button>
+    </div>
+
+</form>

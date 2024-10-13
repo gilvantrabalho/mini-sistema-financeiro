@@ -1,0 +1,55 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/transactions">Transações</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ver</li>
+    </ol>
+</nav>
+
+<div *ngIf="isLoading" class="p-4 rounded bg-white">
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <p class="text-center">Carregando transações...</p>
+</div>
+
+<div *ngIf="!isLoading" class="row">
+
+    <div class="col-md-8 mx-auto">
+        <app-card-container>
+
+            <div class="row">
+
+                <div class="col-md-12 mb-4">
+                    <label for="" class="form-label">Tipo transação</label>
+
+                    <div *ngIf="transaction.type == entradaEnum">
+                        <div><span class="badge bg-success">ENTRADA</span></div>
+                    </div>
+                    <div *ngIf="transaction.type == saidaEnum">
+                        <div><span class="badge bg-danger">SAÍDA</span></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="" class="form-label">Valor</label>
+                    <div>{{ transaction.value | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</div>
+                </div>
+                <div class="col-md-6">
+                    <label for="" class="form-label">Data</label>
+                    <div>{{ transaction.date | date: 'dd/MM/yyyy' }}</div>
+                </div>
+
+                <div class="col-md-12 mt-4">
+                    <label for="" class="form-label">Descrição</label>
+                    <div>{{ transaction.description }}</div>
+                </div>
+
+            </div>
+
+        </app-card-container>
+    </div>
+
+</div>

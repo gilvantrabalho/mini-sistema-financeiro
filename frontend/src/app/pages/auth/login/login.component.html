@@ -1,0 +1,37 @@
+<div class="auth-layout">
+    <div class="bg-white p-5 shadow-sm form-login rounded">
+        <div class="d-flex justify-content-center mb-4">
+            <img src="assets/images/logo/logo.png" alt="Logo" class="img-fluid" style="max-width: 170px;">
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">E-mail <span class="text-danger">*</span></label>
+                <input id="email" formControlName="email" class="form-control p-2" type="text">
+                <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)"
+                    class="text-danger">
+                    <small *ngIf="loginForm.get('email')?.errors?.['required']">O e-mail é obrigatório.</small>
+                    <small *ngIf="loginForm.get('email')?.errors?.['email']">O e-mail deve ser um endereço de e-mail
+                        válido.</small>
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="password" class="form-label">Senha <span class="text-danger">*</span></label>
+                <input id="password" formControlName="password" class="form-control p-2" type="password">
+                <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)"
+                    class="text-danger">
+                    <small *ngIf="loginForm.get('password')?.errors?.['required']">A senha é obrigatória.</small>
+                </div>
+            </div>
+            <button *ngIf="!loading" type="submit" class="btn btn-primary w-100 mt-3 p-2"
+                [disabled]="loginForm.invalid">Entrar</button>
+            <button *ngIf="loading" class="btn btn-primary w-100 mt-3 p-2" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span class="visually-hidden">Loading...</span>
+            </button>
+        </form>
+        <div class="text-center mt-2">
+            <small class="text-primary">Ainda não tem uma conta? <a
+                    routerLink="register"><strong>Cadastrar-se</strong></a></small>
+        </div>
+    </div>
+</div>

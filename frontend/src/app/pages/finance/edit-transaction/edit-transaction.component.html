@@ -1,0 +1,24 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/transactions">Transações</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Editar</li>
+    </ol>
+</nav>
+
+<div *ngIf="isLoading" class="p-4 rounded bg-white">
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <p class="text-center">Carregando transação...</p>
+</div>
+
+<div *ngIf="!isLoading" class="row">
+    <div class="col-md-8 mx-auto">
+        <app-card-container>
+            <app-form-transaction (formSubmit)="onSubmit($event)" [transaction]="transaction" />
+        </app-card-container>
+    </div>
+</div>

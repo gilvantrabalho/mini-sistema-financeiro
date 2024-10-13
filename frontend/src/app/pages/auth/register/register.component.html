@@ -1,0 +1,76 @@
+<div class="auth-layout">
+    <div class="bg-white p-5 shadow-sm form-register rounded">
+
+        <div class="d-flex justify-content-center mb-4">
+            <img src="assets/images/logo/logo.png" alt="Logo" class="img-fluid" style="max-width: 170px;">
+        </div>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-3">
+                <label for="name" class="form-label">Nome <span class="text-danger">*</span></label>
+                <input id="name" formControlName="name" type="text" class="form-control p-2">
+                <div
+                    *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched || registerForm.get('name')?.dirty">
+                    <small *ngIf="registerForm.get('name')?.errors?.['required']" class="text-danger">
+                        Nome é um campo obrigatório
+                    </small>
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">E-mail <span class="text-danger">*</span></label>
+                <input id="email" formControlName="email" type="text" class="form-control p-2">
+                <div
+                    *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched || registerForm.get('email')?.dirty">
+                    <small *ngIf="registerForm.get('email')?.errors?.['required']" class="text-danger">
+                        E-mail é um campo obrigatório
+                    </small>
+                    <small *ngIf="registerForm.get('email')?.errors?.['email']" class="text-danger">
+                        O e-mail deve ser um endereço de e-mail válido.
+                    </small>
+                </div>
+                <div *ngIf="errorMessage">
+                    <small class="text-danger">{{ errorMessage }}</small>
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="password" class="form-label">Senha <span class="text-danger">*</span></label>
+                <input id="password" formControlName="password" type="password" class="form-control p-2">
+                <div
+                    *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched || registerForm.get('password')?.dirty">
+                    <small *ngIf="registerForm.get('password')?.errors?.['required']" class="text-danger">
+                        Senha é um campo obrigatório
+                    </small>
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="c_password" class="form-label">Confirmar senha <span class="text-danger">*</span></label>
+                <input id="c_password" formControlName="c_password" type="password" class="form-control p-2">
+                <div
+                    *ngIf="registerForm.get('c_password')?.invalid && registerForm.get('c_password')?.touched || registerForm.get('c_password')?.dirty">
+                    <small *ngIf="registerForm.get('c_password')?.errors?.['required']" class="text-danger">
+                        Confirmar senha é um campo obrigatório
+                    </small>
+                </div>
+                <div
+                    *ngIf="registerForm.errors?.['mismatch'] && (registerForm.get('c_password')?.touched || registerForm.get('c_password')?.dirty)">
+                    <small class="text-danger">As senhas não correspondem.</small>
+                </div>
+            </div>
+
+            <button *ngIf="!loading" class="btn btn-primary w-100 mt-3 p-2" type="submit"
+                [disabled]="registerForm.invalid">Cadastrar</button>
+
+            <button *ngIf="loading" class="btn btn-primary w-100 mt-3 p-2" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span class="visually-hidden">Loading...</span>
+            </button>
+
+        </form>
+        <div class="text-center mt-2">
+            <small class="text-primary">Já possui uma conta? <a routerLink=""><strong>Login</strong></a></small>
+        </div>
+    </div>
+</div>

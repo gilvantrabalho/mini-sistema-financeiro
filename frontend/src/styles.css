@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+.auth-layout {
+    width: 100%;
+    height: 100%;
+    background-color: #F8F8FF;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: #F8F8FF !important;
+}
+
+input.form-control:focus {
+    box-shadow: none !important;
+}
+
+.breadcrumb li.breadcrumb-item a {
+    color: black !important;
+    text-decoration: none !important;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.breadcrumb li.breadcrumb-item.active {
+    margin-top: 3px;
+    color: gray !important;
+    text-decoration: none !important;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+label.form-label {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+input.form-control,
+textarea.form-control,
+select.form-select {
+    box-shadow: none !important;
+}
+
+.active {
+    font-weight: bold;
+    color: #0d6efd !important;
+}

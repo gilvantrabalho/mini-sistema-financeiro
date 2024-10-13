@@ -1,0 +1,15 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/transactions">Transações</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Adicionar</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <app-card-container>
+            <app-form-transaction (formSubmit)="onSubmit($event)" />
+        </app-card-container>
+    </div>
+</div>
