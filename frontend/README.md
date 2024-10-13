@@ -1,27 +1,51 @@
-# Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.2.
+# Iniciando o Projeto Laravel
 
-## Development server
+Este documento fornece um guia passo a passo para clonar e iniciar o projeto Finance frontend.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requisitos
 
-## Code scaffolding
+Antes de começar, verifique se você tem as seguintes ferramentas instaladas:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Node.js e npm (ou yarn):] Instale as versões mais recentes
+- [Angular CLI] Instale globalmente: `npm install -g @angular/cli`
 
-## Build
+## Passo a Passo para Clonar e Rodar o Projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 1. Clonar o Repositório
 
-## Running unit tests
+Clone o repositório do GitHub para sua máquina local. No terminal, execute o seguinte comando:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+git clone https://github.com/gilvantrabalho/mini-sistema-financeiro
+```
 
-## Running end-to-end tests
+### 2. Navegar até o Diretório do Projeto
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Após clonar, entre no diretório frontend do projeto:
 
-## Further help
+```bash
+cd frontend
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 3. Instalar Dependências
+
+Instale as dependências do projeto usando o Npm:
+
+```bash
+npm install
+```
+
+### 7. Iniciar o Servidor de Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento do Angular, use:
+
+```bash
+ng serve
+```
+
+O aplicativo estará acessível em [http://localhost:4200](http://localhost:4200).
+
+## Conclusão
+
+Agora você deve ter seu projeto Angular em funcionamento. Consulte a [documentação oficial do Angular](https://angular.dev/overview) para obter mais informações sobre como desenvolver seu aplicativo.

@@ -1,7 +1,7 @@
 
 # Iniciando o Projeto Laravel
 
-Este documento fornece um guia passo a passo para clonar e iniciar o projeto Finance.
+Este documento fornece um guia passo a passo para clonar e iniciar o projeto Finance backend.
 
 ## Requisitos
 
@@ -17,17 +17,15 @@ Antes de começar, verifique se você tem as seguintes ferramentas instaladas:
 Clone o repositório do GitHub para sua máquina local. No terminal, execute o seguinte comando:
 
 ```bash
-git clone https://github.com/SEU_USUARIO/nome-do-repositorio.git
+git clone https://github.com/gilvantrabalho/mini-sistema-financeiro
 ```
-
-Substitua `SEU_USUARIO` e `nome-do-repositorio` pelo seu nome de usuário e nome do repositório.
 
 ### 2. Navegar até o Diretório do Projeto
 
-Após clonar, entre no diretório do seu projeto:
+Após clonar, entre no diretório backend do projeto:
 
 ```bash
-cd nome-do-repositorio
+cd backend
 ```
 
 ### 3. Instalar Dependências
@@ -48,7 +46,7 @@ cp .env.example .env
 
 Abra o arquivo `.env` em um editor de texto e configure as seguintes variáveis:
 
-- **DB_CONNECTION**: O tipo de banco de dados (ex: `mysql`, `sqlite`, `pgsql`, etc.)
+- **DB_CONNECTION**: `mysql`
 - **DB_HOST**: O endereço do servidor do banco de dados (geralmente `127.0.0.1`).
 - **DB_PORT**: A porta do banco de dados (geralmente `3306` para MySQL).
 - **DB_DATABASE**: O nome do banco de dados que você deseja usar.
@@ -65,29 +63,13 @@ php artisan key:generate
 
 ### 6. Migrar o Banco de Dados
 
-Se você tiver migrations no seu projeto, execute o seguinte comando para criar as tabelas no banco de dados:
+Execute o seguinte comando para criar as tabelas no banco de dados:
 
 ```bash
 php artisan migrate
 ```
 
-### 7. Instalar Dependências Frontend (Opcional)
-
-Se você estiver usando pacotes frontend, como o Bootstrap ou Vue.js, execute os seguintes comandos:
-
-```bash
-npm install
-```
-
-### 8. Compilar os Assets (Opcional)
-
-Para compilar seus arquivos CSS e JavaScript, use o seguinte comando:
-
-```bash
-npm run dev
-```
-
-### 9. Iniciar o Servidor de Desenvolvimento
+### 7. Iniciar o Servidor de Desenvolvimento
 
 Para iniciar o servidor de desenvolvimento do Laravel, use:
 
